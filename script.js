@@ -26,6 +26,8 @@
     const company = document.querySelector('.company');
     
     // FUNCTIONS
+    
+
     function makeRequest() {
         getData(searchInput.value)
         searchInput.value = null;
@@ -33,13 +35,13 @@
     
     function getData(username) {
         fetch(`https://api.github.com/users/${username}`)
+        .then(handleErrors)
         .then(res => res.json())
         .then(data => {
             const userData = data;
-            console.log(userData)
-            renderData(userData);
-            // content.classList.remove('hidden')
+            userData.message === 'Not Found' ? null : renderData(userData)
         })
+        .catch(error => console.log(error))
     }
     
     function renderData(data) {
@@ -69,6 +71,13 @@
             theme.firstElementChild.textContent = 'LIGHT';
             body.classList.add('dark')
         }
+    }
+
+    function handleErrors(response) {
+        if (!response.ok) {
+            throw Error('You need to type username first 😅');
+        }
+        return response;
     }
     
     
