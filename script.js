@@ -15,6 +15,7 @@
     const joinDate = document.querySelector('.join-date');
     const info = document.querySelector('.info');
     const avatar = document.querySelector('.avatar')
+    const wideAvatar = document.querySelector('.wide-avatar');
     
     const reposNum = document.querySelector('.repos');
     const followersNum = document.querySelector('.followers');
@@ -50,6 +51,7 @@
         joinDate.textContent = `Joined ${data.created_at.slice(0,10)}`;
     
         avatar.setAttribute('src', data.avatar_url)
+        wideAvatar.setAttribute('src', data.avatar_url)
         reposNum.textContent = data.public_repos;
         followersNum.textContent = data.followers;
         followingNum.textContent = data.following
