@@ -6,7 +6,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 :root {
     --light-1:#fefefe;
     --light-2:#f6f8ff;
@@ -20,7 +19,6 @@
     --dark-3: #1e2a47;
     --dark-4: #0079ff;
 }
-
 body {
     font-family: 'Space Mono', monospace;
     font-size: 15px;
@@ -34,7 +32,6 @@ body {
 }
 
 /* LAYOUT */
-
 main {
     max-width: 573px;
     margin: 2em;
@@ -66,9 +63,7 @@ main {
     background-color: var(--light-1);
     border-radius: 15px;
     padding: 9px 9px 9px 32px;
-    margin-bottom: 24px;
     box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
-    
 }
     .home {
         cursor: pointer;
@@ -101,13 +96,24 @@ main {
         cursor: pointer;
     }
 
+.error {
+    margin-bottom: 24px;
+    text-align: right;
+    color: red;
+    font-size: .8rem;
+    margin-right: 10px;
+    visibility: hidden;
+}
+    .throw {
+        visibility: unset;
+    }
+
 /* ======================================================= */
 .content-container {
     background-color: var(--light-1);
     box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
     border-radius: 15px;
     padding: 30px;
-    
 }
 
 .header {
@@ -177,6 +183,12 @@ main {
     .about img {
         margin-right: 1em;
     }
+    .about .website {
+        cursor: pointer;
+    }
+    .about .website:hover {
+        text-decoration: underline;
+    }
 
 
 
@@ -190,17 +202,16 @@ main {
     .search-container {
         padding: 9px;
     }
-    .src-wr .src-input{
-        margin-left: .5em;
-        width: 100%;
-    }
-    .src-wr input::placeholder {
-        font-size: .6rem;
-    }
-    .btn-wr button{
-        padding: 1em 1em;
-    }
-
+        .src-wr .src-input{
+            margin-left: .5em;
+            width: 100%;
+        }
+        .src-wr input::placeholder {
+            font-size: .6rem;
+        }
+        .btn-wr button{
+            padding: 1em 1em;
+        }
     /*  */
 
     .header .avatar {
@@ -241,7 +252,6 @@ main {
     }
         .about-wr .about {
             width: 100%;
-            
         }
         .about img {
             margin-right: 1em;

@@ -1,14 +1,14 @@
 
 (function() {
     'use strict'
-
+    
     // DOM ELLEMENTS
-    const body = document.querySelector('body')
-    const home = document.querySelector('.home')
+    const body = document.querySelector('body');
+    const home = document.querySelector('.home');
     const theme = document.querySelector('.theme-api');
     const searchInput = document.querySelector('.src-input');
     const searchBtn = document.querySelector('.src-btn');
-    const content = document.querySelector('.content-container')
+    const err = document.querySelector('.error')
     
     const user = document.querySelector('.username');
     const url = document.querySelector('.link');
@@ -26,9 +26,8 @@
     const company = document.querySelector('.company');
     
     // FUNCTIONS
-    
-
     function makeRequest() {
+        searchInput.value ? err.classList.remove('throw') : err.classList.add('throw')
         getData(searchInput.value)
         searchInput.value = null;
     }
@@ -83,17 +82,18 @@
     
     
     // EVENTS
+    theme.addEventListener('click', themeSwap);
+
     searchBtn.addEventListener('click', makeRequest);
-    
+
     window.addEventListener('keyup', e => {
         e.key === `Enter` && searchInput === document.activeElement
         ? makeRequest()
         : null
-    })
-    
+    });
+
     home.addEventListener('click', e=> {
         location.reload();
-    })
-    
-    theme.addEventListener('click', themeSwap)
+    });
+
 })();
