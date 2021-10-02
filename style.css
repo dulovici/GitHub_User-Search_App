@@ -96,6 +96,9 @@ main {
         font-family: 'Space Mono', monospace;
         cursor: pointer;
     }
+    .btn-wr button:hover {
+        filter: brightness(1.2);
+    }
 
 .error {
     margin-bottom: 24px;

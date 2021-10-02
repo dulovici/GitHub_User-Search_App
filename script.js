@@ -98,4 +98,8 @@
         location.reload();
     });
 
+    link.addEventListener('click', ()=> {
+        window.open(`https://${link.textContent}`, '_blank');
+    })
+
 })();
