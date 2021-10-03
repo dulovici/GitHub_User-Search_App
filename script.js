@@ -34,7 +34,7 @@
 
     function makeRequest() {
         if(!checkUsername()) {
-            err.textContent = 'Enter a valid username please ⛔️'
+            err.textContent = 'Please enter a valid username.'
             err.classList.add('throw');
         }else {
             err.classList.remove('throw');
@@ -91,7 +91,7 @@
 
     function handleErrors(response) {
         if (!response.ok) {
-            throw Error('No such user in database 😅');
+            throw Error('No such user by this name.');
         }
         return response;
     }
