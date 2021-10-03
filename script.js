@@ -2,7 +2,7 @@
 (function() {
     'use strict'
     
-    // DOM ELLEMENTS
+    // DOM ELLEMENTS //
     const body = document.querySelector('body');
     const home = document.querySelector('.home');
     const theme = document.querySelector('.theme-api');
@@ -26,10 +26,21 @@
     const twitter = document.querySelector('.twitter');
     const company = document.querySelector('.company');
     
-    // FUNCTIONS
+    // FUNCTIONS //
+    function checkUsername() {
+        const re = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i;
+        return re.test(searchInput.value)
+    }
+
     function makeRequest() {
-        searchInput.value ? err.classList.remove('throw') : err.classList.add('throw')
-        getData(searchInput.value)
+        if(!checkUsername()) {
+            err.textContent = 'Enter a valid username please ⛔️'
+            err.classList.add('throw');
+        }else {
+            err.classList.remove('throw');
+            getData(searchInput.value)
+        }
+
         searchInput.value = null;
     }
     
@@ -41,7 +52,11 @@
             const userData = data;
             userData.message === 'Not Found' ? null : renderData(userData)
         })
-        .catch(error => console.log(error))
+        .catch(error => {
+            err.textContent = 'No results.'
+            err.classList.add('throw');
+            console.log(error)
+        })
     }
     
     function renderData(data) {
@@ -76,26 +91,22 @@
 
     function handleErrors(response) {
         if (!response.ok) {
-            throw Error('You need to type username first 😅');
+            throw Error('No such user in database 😅');
         }
         return response;
     }
     
-    
-    
-    // EVENTS
+    // EVENTS //
     theme.addEventListener('click', themeSwap);
 
     searchBtn.addEventListener('click', makeRequest);
 
-    window.addEventListener('keyup', e => {
-        e.key === `Enter` && searchInput === document.activeElement
-        ? makeRequest()
-        : null
+    home.addEventListener('click', () => {
+        location.reload()
     });
 
-    home.addEventListener('click', e=> {
-        location.reload();
+    window.addEventListener('keyup', e => {
+        e.key === `Enter` && searchInput === document.activeElement ? makeRequest() : null
     });
 
     link.addEventListener('click', ()=> {

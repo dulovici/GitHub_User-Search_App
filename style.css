@@ -71,7 +71,7 @@ main {
     }
     .src-wr {
         display: flex;
-        width: 60%;
+        width: 100%;
         justify-content: center;
     }
     .src-wr input {
@@ -234,7 +234,7 @@ main {
             width: 100%;
         }
         .src-wr input::placeholder {
-            font-size: .6rem;
+            font-size: .75rem;
         }
         .btn-wr button{padding: 1em 1em;}
     /*  */
