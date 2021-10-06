@@ -297,5 +297,7 @@ main {
     .dark .num-wr {color: var(--dark-1);}
     .dark .about {color: var(--dark-1);}
     .dark .about {color: var(--dark-1);}
-        
+    .dark .about img {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(175deg) brightness(103%) contrast(102%);
+    }  
     
